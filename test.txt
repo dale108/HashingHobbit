@@ -1,0 +1,40 @@
+!
+"
+#
+$
+%
+&
+\
+'
+(
+)
+*
++
+,
+-
+.
+/
+:
+;
+<
+=
+>
+?
+@
+[
+\
+\
+]
+^
+_
+`
+{
+|
+}
+~
+
+
+
+test word `punct` "he-he" what-
+ever easy-peasy widows' can't what-
+  evah2 donesy.
