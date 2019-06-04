@@ -1,12 +1,8 @@
-// Author: Dale Berg, CPSC 2430 02
-// Filename: p4.xpp
-// Assignment: p4, Hashing the Hobbit
-// Date: 6/3/2019
+// p4.cpp
+// TODO: Complete all the code that is marked as TODO in the file
+// TODO: add functional documentation (and inline comments, as necessary)
 
-// Purpose: Driver for p4 program. Displays prompts and takes commands from user
-// to analyze texts and display data about text files loaded.
-
-#include "WordCounter.h"
+#include "WordCounterx.h"
 #include "CommonWordList.h"
 
 #include <sstream>
@@ -132,19 +128,18 @@ bool processLine(string line, vector<LoadedPassage *> &passages) {
 
 void loadFileCmd(vector<string> cmds, vector<LoadedPassage *> &passages) {
 	// check if enough load commands provided
-	if (cmds.size() != 3) {
+	if (cmds.size() != 2) {
 		cout << "Error: Hash Table size and/or file not provided.\n";
 		return;
 	}
 
 	// declare & populate variables
-	int capacity = stoi(cmds[1]);
-	string filename = cmds[2];
+	string filename = cmds[1];
 	string word;
 	ifstream infile;
 	LoadedPassage * lp = new LoadedPassage;
 	lp->passageTitle = filename;
-	lp->wordCounter = new WordCounter(capacity);
+	lp->wordCounter = new WordCounter;
 
 	// read from file and populate
 	infile.open(filename);
@@ -337,7 +332,7 @@ string cleanWord(string s) {
 		else if (s[i] == apostropheChar) {
 			if (i > 0 && isalnum(s[i-1]))
 				result += tolower(s[i]);
-		} else if (s[i] == hyphenChar) { // this is end f lime hyphen case.
+		} else if (s[i] == hyphenChar) {
 			if (i > 0 && i < (length-1) && isalnum(s[i-1]) && isalnum(s[i+1]))
 				result += tolower(s[i]); // changed these from s[i] to tolower(s[i])
 		}
@@ -347,9 +342,9 @@ string cleanWord(string s) {
 }
 
 void welcome() {
-	cout << "\n\nWelcome to the Word Analysis program!" << endl;
-	cout << "This program will analyze any number of  .txt files and display";
-	cout << " information about it's contents." << endl;
+	cout << "\n\nWelcome to the Word Analyzes program!" << endl;
+	cout << "This program will analyze a .txt file and display information";
+	cout << " about it's contents." << endl;
 	cout << "Input 'help' and press enter at any time to see a list of " << endl;
 	cout << "commands and how to use them" << endl;
 }
